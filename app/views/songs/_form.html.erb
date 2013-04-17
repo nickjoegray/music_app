@@ -1,0 +1,12 @@
+<%= form_for @song, :html => {:multipart => true} do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :instrument_id %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.file_field :track %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

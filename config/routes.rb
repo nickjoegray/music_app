@@ -1,10 +1,20 @@
 MusicRemix::Application.routes.draw do
 
+  # devise_scope :user do
+  #   get "/users/logout" => "devise/sessions#destroy"
+  # end
+
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
-  # devise_for :admins
-  resources :instruments
-  get "/" => "instruments#index"
+
+  # devise_for :users, :path => "auth", :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
+  # resources :instruments
+  # get "/" => "instruments#redirect"
+
+  resources :instrument_category do 
+    resources :instruments 
+  end
   
 
   # resources :instruments do

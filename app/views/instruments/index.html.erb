@@ -1,63 +1,13 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"> 
-<head>
-<style type="text/css"> 
-<!-- 
- 
- #navbar ul { 
-  margin: 0; 
-  padding: 5px; 
-  list-style-type: none; 
-  text-align: center; 
-  background-color: #000; 
-  } 
- 
-#navbar ul li {  
-  display: inline; 
-  } 
- 
-#navbar ul li a { 
-  text-decoration: none; 
-  padding: .2em 1em; 
-  color: #fff; 
-  background-color: #000; 
-  } 
- 
-#navbar ul li a:hover { 
-  color: #000; 
-  background-color: #fff; 
-  } 
- 
---> 
-</style> 
-</head>
+<p><strong>Instrument Categories</strong></p>
 <div>
-  <h1>Instrumental &</h1> 
-</div>
-<body> 
-<div id="navbar"> 
-  <ul> 
-  <li><a href="#"><<</a></li> 
-  <li><a href="#">></a></li> 
-  <li><a href="#">||</a></li> 
-  <li><a href="#">>></a></li> 
-  <li><a href="#">Stop</a></li>
-  <li><a href="#">K</a></li> 
-  </ul> 
-</div>
-<div>
-  <p>Wind</p>
-  <p>String</p>
-  <p>Percussion</p>
+  <% @instrument_categories.each do |ic| %>
+    <p><%= link_to ic.title, instrument_category_instruments_path(ic) %></p>
+  <% end %>
 </div> 
 <hr>
+  <p>Search by: <strong><%= @instrument_category.title %></strong></p>
 <div>
-  <p>Trumpet</p>
-  <p>Saxophone</p>
-  <p>Clarinet</p>
-  <p>Flute</p>
-  <p>Piccolo</p>
-  <p>Oboe</p>
+  <% @instrument_category.instruments.each do |instrument| %>
+    <p><%= link_to instrument.title, instrument_category_instrument_path(@instrument_category, instrument) %></p>
+  <% end %>
 </div>
-</body> 
-</html>

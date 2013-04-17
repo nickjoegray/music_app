@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MusicRemix</title>
+  <title>InstruMENTAL</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -12,7 +12,7 @@
       <% if user_signed_in? %>
         Logged in as <strong><%= current_user.email %></strong>.
         <%= link_to 'Edit Profile', edit_user_registration_path %> |
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
       <% else %>
         <%= link_to 'Sign up', new_user_registration_path %> |
         <%= link_to 'Login', new_user_session_path %>
@@ -23,9 +23,24 @@
       <%= content_tag :div, msg, id: "flash_#{name}" %>
     <% end %>
 
+    <div>
+      <h1>InstruMENTAL</h1> 
+    </div>
+
+    <div id="navbar"> 
+      <ul> 
+      <li><a href="#"><<</a></li> 
+      <li><a href="#">></a></li> 
+      <li><a href="#">||</a></li> 
+      <li><a href="#">>></a></li> 
+      <li><a href="#">Stop</a></li>
+      <li><a href="#">K</a></li> 
+      </ul> 
+      <%#= link_to 'Show',  %>
+    </div>
 <!--   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p> -->
-<%= yield %>
+    <%= yield %>
   </div>
 
 </body>

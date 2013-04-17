@@ -2,16 +2,12 @@ class InstrumentsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
 
   def index
-    @instruments = Instrument.all
-  end
-
-  def new
-     @instruments = Instrument.find(params[:id])
+    @instrument_categories = InstrumentCategory.all # list of all categories (wind, strings, percussion)
+    @instrument_category = InstrumentCategory.find params[:instrument_category_id] # the category we are currently in
   end
 
   def show
+    @instrument = Instrument.find(params[:id])
   end
 
-  def create
-  end
 end

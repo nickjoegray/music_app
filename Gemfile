@@ -27,8 +27,11 @@ gem 'devise'
 
 group :development do
   gem 'better_errors'
+  gem 'pry-rails'
+  gem 'letter_opener'
 end
 
+gem 'carrierwave'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
