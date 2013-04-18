@@ -7,6 +7,7 @@ class InstrumentsController < ApplicationController
   end
 
   def show
+    @instrument_category = InstrumentCategory.find params[:instrument_category_id] # the category we are currently in
     @instrument = Instrument.find(params[:id])
   end
 

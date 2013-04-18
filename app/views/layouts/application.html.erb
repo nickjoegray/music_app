@@ -1,22 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <script type="text/javascript" src="/jPlayer/js/jquery.jplayer.min.js">
+  </script>
+  <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
+  <meta charset="utf-8">
   <title>InstruMENTAL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= link_to 'InstruMENTAL', instrument_category_instruments_path, :class => 'brand' %>
+          <div class="nav-collapse collapse">
+            <ul class="nav"></ul>
+            <div class="pull-right">
+              <% if user_signed_in? %>
+                Logged in as <strong><%= current_user.email %></strong>.
+                <%= link_to 'Edit Profile', edit_user_registration_path %> |
+                <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+              <% else %>
+                <%= link_to 'Sign up', new_user_registration_path %> |
+                <%= link_to 'Login', new_user_session_path %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="navbar"> 
+      <audio id="player" src="<%= @song_src %>"></audio>
+      <ul> 
+      <li><a id="back" href="#"><<</a></li> 
+      <li><a id="play" href="#">></a></li> 
+      <li><a id="pause" href="#">||</a></li> 
+      <li><a id="next" href="#">>></a></li> 
+      <li><a id="stop" href="#">Stop</a></li>
+      <li><a href="#">K</a></li> 
+      </ul> 
+      <%#= link_to 'Show',  %>
+    </div>
+  </div>
+
   <div id="container">
     <div id="user_nav">
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit Profile', edit_user_registration_path %> |
-        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-      <% else %>
-        <%= link_to 'Sign up', new_user_registration_path %> |
-        <%= link_to 'Login', new_user_session_path %>
-      <% end %>
+      
     </div>
 
     <% flash.each do |name, msg| %>
@@ -24,20 +66,12 @@
     <% end %>
 
     <div>
-      <h1>InstruMENTAL</h1> 
+      <h1></h1> 
+    <script src="js/bootstrap.min.js"></script>
     </div>
 
-    <div id="navbar"> 
-      <ul> 
-      <li><a href="#"><<</a></li> 
-      <li><a href="#">></a></li> 
-      <li><a href="#">||</a></li> 
-      <li><a href="#">>></a></li> 
-      <li><a href="#">Stop</a></li>
-      <li><a href="#">K</a></li> 
-      </ul> 
-      <%#= link_to 'Show',  %>
-    </div>
+    
+
 <!--   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p> -->
     <%= yield %>

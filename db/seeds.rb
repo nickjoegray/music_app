@@ -44,9 +44,11 @@ song.save!
 
 # String Instruments: 
 instrument = instrument_category2.instruments.create!({ title: "Piano" })
+
 song = instrument.songs.create!(:song_title => "Some title 6")
 song.track.store!(File.open(File.join(Rails.root, 'songs', 'song6.mp3')))
 song.save!
+
 song = instrument.songs.create!(:song_title => "Some title 16")
 song.track.store!(File.open(File.join(Rails.root, 'songs', 'song16.mp3')))
 song.save!

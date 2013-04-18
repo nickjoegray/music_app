@@ -2,7 +2,8 @@
   <h2>Search by: <%= @instrument.title %></h2>
   <% @instrument.songs.each do |song| %>
     <div class="track">
-      <%= link_to song.song_title, song.track_url %>
+      <%= link_to song.song_title, instrument_category_instrument_song_path(@instrument_category, @instrument, song) %>
+      <audio src="<%= song.track_url %>" controls></audio>
     </div>
   <% end %>
 </div>

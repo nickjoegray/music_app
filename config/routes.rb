@@ -13,8 +13,12 @@ MusicRemix::Application.routes.draw do
   get "/" => "instruments#home"
 
   resources :instrument_category do 
-    resources :instruments 
+    resources :instruments do
+      resources :songs, :only => [:show]
+    end
   end
+
+  
   
 
   # resources :instruments do
