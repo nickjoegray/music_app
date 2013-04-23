@@ -5,9 +5,37 @@
   <% end %>
 </div> 
 <hr>
-  <p>Search by: <strong><%= @instrument_category.title %></strong></p>
-<div>
-  <% @instrument_category.instruments.each do |instrument| %>
-    <p><%= link_to instrument.title, instrument_category_instrument_path(@instrument_category, instrument) %></p>
-  <% end %>
+
+
+<div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+      <p>Search by: <strong><%= InstrumentCategory.where(:id => 1).first.title %></strong></p>
+      <div class="search-by">
+        <% InstrumentCategory.where(:id => 1).first.instruments.each do |instrument| %>
+          <div class="instrument-links"><%= link_to instrument.title, instrument_category_instrument_path(@instrument_category, instrument) %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <p>Search by: <strong><%= InstrumentCategory.where(:id => 2).first.title %></strong></p>
+      <div class="search-by">
+        <% InstrumentCategory.where(:id => 2).first.instruments.each do |instrument| %>
+          <div class="instrument-links"><%= link_to instrument.title, instrument_category_instrument_path(@instrument_category, instrument) %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="item">
+      <p>Search by: <strong><%= InstrumentCategory.where(:id => 3).first.title %></strong></p>
+      <div class="search-by">
+        <% InstrumentCategory.where(:id => 3).first.instruments.each do |instrument| %>
+          <div class="instrument-links"><%= link_to instrument.title, instrument_category_instrument_path(@instrument_category, instrument) %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
