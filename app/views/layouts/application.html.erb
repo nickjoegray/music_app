@@ -12,7 +12,7 @@
 
     <style type="text/css">
       body {
-        padding-top: 40px;
+        padding-top: 56px;
         padding-bottom: 40px;
       }
     </style>
@@ -25,7 +25,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <%= link_to 'InstruMENTAL', instrument_category_instruments_path, :class => 'brand' %>
+        <%= link_to 'InstruMENTAL', instrument_category_instruments_path(1), :class => 'brand' %>
           <div class="nav-collapse collapse">
             <ul class="nav"></ul>
             <div class="pull-right">
@@ -37,6 +37,12 @@
                 <%= link_to 'Sign up', new_user_registration_path %> |
                 <%= link_to 'Login', new_user_session_path %>
               <% end %>
+              <!-- this form is for the text fields for email and password -->
+              <form class="navbar-form pull-right">
+              <input class="span2" type="text" placeholder="Email">
+              <input class="span2" type="password" placeholder="Password">
+              <button type="submit" class="btn">Login</button>
+              </form>
             </div>
           </div>
         </div>
@@ -74,9 +80,10 @@
 
 <!--   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p> -->
+  <div id="pjax-container" data-pjax-container>
     <%= yield %>
   </div>
-
+  </div>
 </body>
 </html>
 

@@ -13,17 +13,20 @@
 #= require jquery
 #= require jquery_ujs
 #= require bootstrap
+#= require jquery.pjax
 #= require_tree .
-
 
 $ ->
   player = $('#player')[0]
 
   $('#play').click((e) ->
     player.play()
+    e.preventDefault()
   )
 
   $('#pause').click((e) ->
     player.pause()
+    e.preventDefault()
   )
   
+  $('a').pjax('[data-pjax-container]')

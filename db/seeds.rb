@@ -18,9 +18,12 @@ instrument_category3 = InstrumentCategory.create(img_url: "im an img url", title
 
 # Woodwind Instruments: 
 instrument = instrument_category1.instruments.create!({ title: "Trumpet" })
-song = instrument.songs.create!(:song_title => "Some title 1")
+song = instrument.songs.create!(:song_title => "Lupe Fiasco - Jonlah Forever")
 song.track.store!(File.open(File.join(Rails.root, 'songs', 'song1.mp3')))
 song.save!
+# song = instrument.songs.create!(:song_title => "Some title 17")
+# song.track.store!(File.open(File.join(Rails.root, 'songs', 'song17.mp3')))
+# song.save!
 
 instrument = instrument_category1.instruments.create!({ title: "Oboe" })
 song = instrument.songs.create!(:song_title => "Some title 2")

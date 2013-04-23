@@ -20,7 +20,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'binding_of_caller'
 gem 'jquery-rails'
+gem 'rack-pjax'
 gem 'haml'
 gem 'devise'
 
